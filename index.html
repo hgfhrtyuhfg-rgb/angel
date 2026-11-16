@@ -248,10 +248,31 @@ function submitOrder() {
         alert("Пожалуйста, заполните все поля!");
     } else {
         closeBookingModal(); 
-        document.getElementById("successMessage").innerText = "Спасибо, " + name + "! Столик на " + bron + " чел. забронирован. Мы позвоним вам на номер " + phone;
-        openSuccessModal();
+        
+        
+        emailjs.send("service_d70pxni", "n31obtb", {
+            name: name,
+            phone: phone,
+            bron: bron
+        }).then(function() {
+            
+            document.getElementById("successMessage").innerText = "Спасибо, " + name + "! Столик на " + bron + " чел. забронирован. Мы позвоним вам на номер " + phone;
+            openSuccessModal();
+        }, function(error) {
+            
+            alert("Ошибка отправки. Попробуйте позже.");
+            console.log(error);
+        });
     }
 }
+</script>
+    <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+<script>
+   (function(){
+      emailjs.init({
+        publicKey: "ckRRCt9TlhCrfTaZz",
+      });
+   })();
 </script>
 </body>
 </html>
