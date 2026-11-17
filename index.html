@@ -193,17 +193,31 @@ button:hover {
     </div>
 
     
-    <div id="bookingModal" class="modal">
-        <div class="modal-content">
-            <span class="close" onclick="closeBookingModal()">&times;</span>
-            <h2>Бронирование столика</h2>
+   <div id="bookingModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeBookingModal()">&times;</span>
+        <h2>Бронирование столика</h2>
+        
+        
+        <form action="https://formspree.io/f/xppddwal" method="POST">
+            
+           
+            <input type="hidden" name="_subject" value="Новый заказ из Бара Angel">
+            
             <p>Введите ваше имя и номер телефона:</p>
-            <input type="text" id="nameInput" placeholder="Ваше имя">
-            <input type="text" id="phoneInput" placeholder="Телефон">
-            <input type="text" id="bronInput" placeholder="Введите кол-во людей">
-            <button onclick="submitOrder()">Забронировать</button>
-        </div>
+            
+            
+            <input type="text" id="nameInput" name="name" placeholder="Ваше имя" required>
+            <input type="text" id="phoneInput" name="phone" placeholder="Телефон" required>
+            <input type="text" id="bronInput" name="bron" placeholder="Введите кол-во людей" required>
+            
+           
+            <button type="submit">Забронировать</button>
+        </form>
+       
+        
     </div>
+</div>
 
     
     <div id="successModal" class="modal">
