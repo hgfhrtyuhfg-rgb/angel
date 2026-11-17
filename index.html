@@ -253,22 +253,9 @@ function closeSuccessModal() {
     document.getElementById("successModal").style.display = "none";
 }
 
-function submitOrder() {
-    let name = document.getElementById("nameInput").value;
-    let phone = document.getElementById("phoneInput").value;
-    let bron = document.getElementById("bronInput").value; 
 
-    if (name === "" || phone === "" || bron === "") {
-        alert("Пожалуйста, заполните все поля!");
-    } else {
-        closeBookingModal(); 
-        
-        
-        emailjs.send("service_g2owgna", "n31obtb", {
-            name: name,
-            phone: phone,
-            bron: bron
-        }).then(function() {
+
+    
             
             document.getElementById("successMessage").innerText = "Спасибо, " + name + "! Столик на " + bron + " чел. забронирован. Мы позвоним вам на номер " + phone;
             openSuccessModal();
